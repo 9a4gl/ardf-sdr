@@ -11,8 +11,8 @@ options:
     gen_linking: dynamic
     generate_options: qt_gui
     hier_block_src_path: '.:'
-    id: foxv3
-    max_nouts: '0'
+    id: foxv4
+    max_nouts: '128'
     output_language: python
     placement: (0,0)
     qt_qss_theme: ''
@@ -22,7 +22,7 @@ options:
     run_options: prompt
     sizing_mode: fixed
     thread_safe_setters: ''
-    title: Fox v3
+    title: Fox v4
     window_size: (1000,1000)
   states:
     bus_sink: false
@@ -51,7 +51,7 @@ blocks:
     bus_sink: false
     bus_source: false
     bus_structure: null
-    coordinate: [784, 12.0]
+    coordinate: [800, 12.0]
     rotation: 0
     state: true
 - name: audio_samp_rate
@@ -63,7 +63,7 @@ blocks:
     bus_sink: false
     bus_source: false
     bus_structure: null
-    coordinate: [272, 12.0]
+    coordinate: [184, 76.0]
     rotation: 0
     state: enabled
 - name: cw_speed
@@ -75,10 +75,10 @@ blocks:
     min_len: '200'
     orient: QtCore.Qt.Horizontal
     rangeType: int
-    start: '100000'
-    step: '10000'
-    stop: '500000'
-    value: '250000'
+    start: '25'
+    step: '1'
+    stop: '150'
+    value: '50'
     widget: counter_slider
   states:
     bus_sink: false
@@ -96,10 +96,10 @@ blocks:
     min_len: '200'
     orient: QtCore.Qt.Horizontal
     rangeType: float
-    start: '0'
-    step: 5e3
-    stop: 1e6
-    value: 560e3
+    start: 144e6
+    step: 1e3
+    stop: 145e6
+    value: 144560e3
     widget: counter_slider
   states:
     bus_sink: false
@@ -134,7 +134,7 @@ blocks:
     bus_sink: false
     bus_source: false
     bus_structure: null
-    coordinate: [176, 12.0]
+    coordinate: [184, 12.0]
     rotation: 0
     state: enabled
 - name: analog_const_source_x_0
@@ -185,7 +185,7 @@ blocks:
     bus_sink: false
     bus_source: false
     bus_structure: null
-    coordinate: [360, 572.0]
+    coordinate: [240, 580.0]
     rotation: 0
     state: enabled
 - name: analog_sig_source_x_0
@@ -205,35 +205,12 @@ blocks:
     type: float
     waveform: analog.GR_SIN_WAVE
   states:
-    bus_sink: false
+    bus_sink: true
     bus_source: false
     bus_structure: null
     coordinate: [16, 284.0]
     rotation: 0
     state: enabled
-- name: analog_sig_source_x_0_0
-  id: analog_sig_source_x
-  parameters:
-    affinity: ''
-    alias: ''
-    amp: '1'
-    comment: ''
-    freq: freq
-    maxoutbuf: '0'
-    minoutbuf: '0'
-    offset: '0'
-    phase: '0'
-    samp_rate: samp_rate
-    showports: 'False'
-    type: complex
-    waveform: analog.GR_COS_WAVE
-  states:
-    bus_sink: false
-    bus_source: false
-    bus_structure: null
-    coordinate: [16, 492.0]
-    rotation: 0
-    state: true
 - name: blocks_add_xx_0
   id: blocks_add_xx
   parameters:
@@ -249,7 +226,7 @@ blocks:
     bus_sink: false
     bus_source: false
     bus_structure: null
-    coordinate: [456, 472.0]
+    coordinate: [312, 496.0]
     rotation: 0
     state: enabled
 - name: blocks_float_to_complex_0
@@ -294,14 +271,14 @@ blocks:
     comment: ''
     maxoutbuf: '0'
     minoutbuf: '0'
-    num_inputs: '3'
+    num_inputs: '2'
     type: complex
     vlen: '1'
   states:
     bus_sink: false
     bus_source: false
     bus_structure: null
-    coordinate: [600, 504.0]
+    coordinate: [456, 528.0]
     rotation: 0
     state: enabled
 - name: blocks_repeat_0
@@ -310,7 +287,7 @@ blocks:
     affinity: ''
     alias: ''
     comment: ''
-    interp: cw_speed
+    interp: int(samp_rate * 6 / cw_speed)
     maxoutbuf: '0'
     minoutbuf: '0'
     type: complex
@@ -366,9 +343,9 @@ blocks:
   parameters:
     affinity: ''
     alias: ''
-    bw: samp_rate
+    bw: samp_rate/2
     comment: ''
-    fc: 144e6
+    fc: freq
     fftsize: '1024'
     gui_hint: ''
     maxoutbuf: '0'
@@ -387,9 +364,9 @@ blocks:
     bus_sink: false
     bus_source: false
     bus_structure: null
-    coordinate: [752, 444.0]
+    coordinate: [616, 468.0]
     rotation: 0
-    state: enabled
+    state: disabled
 - name: soapy_hackrf_sink_0
   id: soapy_hackrf_sink
   parameters:
@@ -397,9 +374,9 @@ blocks:
     alias: ''
     amp: 'False'
     bandwidth: '0'
-    center_freq: 144e6
+    center_freq: freq
     comment: ''
-    dev_args: ''
+    dev_args: hackrd=0,buffers=1
     samp_rate: samp_rate
     type: fc32
     vga: '16'
@@ -407,7 +384,7 @@ blocks:
     bus_sink: false
     bus_source: false
     bus_structure: null
-    coordinate: [784, 552.0]
+    coordinate: [616, 576.0]
     rotation: 0
     state: enabled
 - name: virtual_sink_0
@@ -472,7 +449,7 @@ blocks:
     bus_sink: false
     bus_source: false
     bus_structure: null
-    coordinate: [216, 500.0]
+    coordinate: [72, 524.0]
     rotation: 0
     state: enabled
 - name: virtual_source_2
@@ -485,16 +462,15 @@ blocks:
     bus_sink: false
     bus_source: false
     bus_structure: null
-    coordinate: [216, 452.0]
+    coordinate: [72, 476.0]
     rotation: 0
     state: enabled
 
 connections:
 - [analog_const_source_x_0, '0', blocks_float_to_complex_0, '1']
 - [analog_const_source_x_1, '0', blocks_sub_xx_0, '0']
-- [analog_const_source_x_2, '0', blocks_multiply_xx_0_0_0, '2']
+- [analog_const_source_x_2, '0', blocks_multiply_xx_0_0_0, '1']
 - [analog_sig_source_x_0, '0', blocks_float_to_complex_0, '0']
-- [analog_sig_source_x_0_0, '0', blocks_multiply_xx_0_0_0, '1']
 - [blocks_add_xx_0, '0', blocks_multiply_xx_0_0_0, '0']
 - [blocks_float_to_complex_0, '0', blocks_multiply_xx_0_0, '0']
 - [blocks_multiply_xx_0_0, '0', virtual_sink_0_0_0, '0']
