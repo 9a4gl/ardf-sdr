@@ -11,7 +11,7 @@ options:
     gen_linking: dynamic
     generate_options: qt_gui
     hier_block_src_path: '.:'
-    id: fox
+    id: foxv2
     max_nouts: '0'
     output_language: python
     placement: (0,0)
@@ -22,7 +22,7 @@ options:
     run_options: prompt
     sizing_mode: fixed
     thread_safe_setters: ''
-    title: Fox
+    title: Foxv2
     window_size: (1000,1000)
   states:
     bus_sink: false
@@ -134,24 +134,7 @@ blocks:
     bus_sink: false
     bus_source: false
     bus_structure: null
-    coordinate: [456, 244.0]
-    rotation: 0
-    state: enabled
-- name: analog_const_source_x_0_0
-  id: analog_const_source_x
-  parameters:
-    affinity: ''
-    alias: ''
-    comment: ''
-    const: '0'
-    maxoutbuf: '0'
-    minoutbuf: '0'
-    type: float
-  states:
-    bus_sink: false
-    bus_source: false
-    bus_structure: null
-    coordinate: [416, 500.0]
+    coordinate: [192, 588.0]
     rotation: 0
     state: enabled
 - name: analog_const_source_x_1
@@ -160,15 +143,15 @@ blocks:
     affinity: ''
     alias: ''
     comment: ''
-    const: '1'
+    const: complex(1, 0)
     maxoutbuf: '0'
     minoutbuf: '0'
-    type: float
+    type: complex
   states:
     bus_sink: false
     bus_source: false
     bus_structure: null
-    coordinate: [168, 420.0]
+    coordinate: [256, 228.0]
     rotation: 0
     state: enabled
 - name: analog_sig_source_x_0
@@ -191,7 +174,7 @@ blocks:
     bus_sink: false
     bus_source: false
     bus_structure: null
-    coordinate: [24, 124.0]
+    coordinate: [16, 436.0]
     rotation: 0
     state: enabled
 - name: analog_sig_source_x_0_0
@@ -214,7 +197,7 @@ blocks:
     bus_sink: false
     bus_source: false
     bus_structure: null
-    coordinate: [616, 292.0]
+    coordinate: [16, 612.0]
     rotation: 0
     state: true
 - name: blocks_add_xx_0
@@ -232,7 +215,7 @@ blocks:
     bus_sink: false
     bus_source: false
     bus_structure: null
-    coordinate: [992, 328.0]
+    coordinate: [808, 608.0]
     rotation: 0
     state: enabled
 - name: blocks_float_to_complex_0
@@ -248,26 +231,10 @@ blocks:
     bus_sink: false
     bus_source: false
     bus_structure: null
-    coordinate: [672, 184.0]
+    coordinate: [384, 560.0]
     rotation: 0
     state: enabled
-- name: blocks_float_to_complex_0_0
-  id: blocks_float_to_complex
-  parameters:
-    affinity: ''
-    alias: ''
-    comment: ''
-    maxoutbuf: '0'
-    minoutbuf: '0'
-    vlen: '1'
-  states:
-    bus_sink: false
-    bus_source: false
-    bus_structure: null
-    coordinate: [632, 440.0]
-    rotation: 0
-    state: enabled
-- name: blocks_multiply_xx_0
+- name: blocks_multiply_xx_0_0
   id: blocks_multiply_xx
   parameters:
     affinity: ''
@@ -275,17 +242,17 @@ blocks:
     comment: ''
     maxoutbuf: '0'
     minoutbuf: '0'
-    num_inputs: '2'
-    type: float
+    num_inputs: '3'
+    type: complex
     vlen: '1'
   states:
     bus_sink: false
     bus_source: false
     bus_structure: null
-    coordinate: [464, 168.0]
+    coordinate: [632, 544.0]
     rotation: 0
     state: enabled
-- name: blocks_multiply_xx_1_0_0
+- name: blocks_multiply_xx_0_0_0
   id: blocks_multiply_xx
   parameters:
     affinity: ''
@@ -300,25 +267,7 @@ blocks:
     bus_sink: false
     bus_source: false
     bus_structure: null
-    coordinate: [856, 424.0]
-    rotation: 0
-    state: enabled
-- name: blocks_multiply_xx_1_0_0_0
-  id: blocks_multiply_xx
-  parameters:
-    affinity: ''
-    alias: ''
-    comment: ''
-    maxoutbuf: '0'
-    minoutbuf: '0'
-    num_inputs: '2'
-    type: complex
-    vlen: '1'
-  states:
-    bus_sink: false
-    bus_source: false
-    bus_structure: null
-    coordinate: [872, 256.0]
+    coordinate: [632, 664.0]
     rotation: 0
     state: enabled
 - name: blocks_repeat_0
@@ -330,13 +279,13 @@ blocks:
     interp: cw_speed
     maxoutbuf: '0'
     minoutbuf: '0'
-    type: float
+    type: complex
     vlen: '1'
   states:
     bus_sink: false
     bus_source: false
     bus_structure: null
-    coordinate: [240, 292.0]
+    coordinate: [224, 164.0]
     rotation: 0
     state: enabled
 - name: blocks_sub_xx_0
@@ -348,13 +297,13 @@ blocks:
     maxoutbuf: '0'
     minoutbuf: '0'
     num_inputs: '2'
-    type: float
+    type: complex
     vlen: '1'
   states:
     bus_sink: false
     bus_source: false
     bus_structure: null
-    coordinate: [456, 424.0]
+    coordinate: [456, 232.0]
     rotation: 0
     state: enabled
 - name: blocks_vector_source_x_0
@@ -367,7 +316,7 @@ blocks:
     minoutbuf: '0'
     repeat: 'True'
     tags: '[]'
-    type: float
+    type: complex
     vector: (1, 1, 1, 0, 1, 1, 1, 0, 0, 0, 1, 1 ,1 ,0, 1, 1, 1, 0, 1, 1, 1, 0, 0,
       0, 1, 0, 0, 0, 0, 0, 0)
     vlen: '1'
@@ -375,7 +324,7 @@ blocks:
     bus_sink: false
     bus_source: false
     bus_structure: null
-    coordinate: [32, 276.0]
+    coordinate: [8, 148.0]
     rotation: 0
     state: enabled
 - name: soapy_hackrf_sink_0
@@ -395,27 +344,78 @@ blocks:
     bus_sink: false
     bus_source: false
     bus_structure: null
-    coordinate: [1040, 440.0]
+    coordinate: [936, 624.0]
+    rotation: 0
+    state: enabled
+- name: virtual_sink_0
+  id: virtual_sink
+  parameters:
+    alias: ''
+    comment: ''
+    stream_id: cw_key
+  states:
+    bus_sink: false
+    bus_source: false
+    bus_structure: null
+    coordinate: [424, 164.0]
+    rotation: 0
+    state: enabled
+- name: virtual_sink_0_0
+  id: virtual_sink
+  parameters:
+    alias: ''
+    comment: ''
+    stream_id: negative_cw_key
+  states:
+    bus_sink: false
+    bus_source: false
+    bus_structure: null
+    coordinate: [584, 244.0]
+    rotation: 0
+    state: enabled
+- name: virtual_source_0
+  id: virtual_source
+  parameters:
+    alias: ''
+    comment: ''
+    stream_id: cw_key
+  states:
+    bus_sink: false
+    bus_source: false
+    bus_structure: null
+    coordinate: [16, 388.0]
+    rotation: 0
+    state: enabled
+- name: virtual_source_1
+  id: virtual_source
+  parameters:
+    alias: ''
+    comment: ''
+    stream_id: negative_cw_key
+  states:
+    bus_sink: false
+    bus_source: false
+    bus_structure: null
+    coordinate: [16, 740.0]
     rotation: 0
     state: enabled
 
 connections:
 - [analog_const_source_x_0, '0', blocks_float_to_complex_0, '1']
-- [analog_const_source_x_0_0, '0', blocks_float_to_complex_0_0, '1']
 - [analog_const_source_x_1, '0', blocks_sub_xx_0, '0']
-- [analog_sig_source_x_0, '0', blocks_multiply_xx_0, '0']
-- [analog_sig_source_x_0_0, '0', blocks_multiply_xx_1_0_0, '0']
-- [analog_sig_source_x_0_0, '0', blocks_multiply_xx_1_0_0_0, '1']
+- [analog_sig_source_x_0, '0', blocks_float_to_complex_0, '0']
+- [analog_sig_source_x_0_0, '0', blocks_multiply_xx_0_0, '2']
+- [analog_sig_source_x_0_0, '0', blocks_multiply_xx_0_0_0, '0']
 - [blocks_add_xx_0, '0', soapy_hackrf_sink_0, '0']
-- [blocks_float_to_complex_0, '0', blocks_multiply_xx_1_0_0_0, '0']
-- [blocks_float_to_complex_0_0, '0', blocks_multiply_xx_1_0_0, '1']
-- [blocks_multiply_xx_0, '0', blocks_float_to_complex_0, '0']
-- [blocks_multiply_xx_1_0_0, '0', blocks_add_xx_0, '1']
-- [blocks_multiply_xx_1_0_0_0, '0', blocks_add_xx_0, '0']
-- [blocks_repeat_0, '0', blocks_multiply_xx_0, '1']
+- [blocks_float_to_complex_0, '0', blocks_multiply_xx_0_0, '1']
+- [blocks_multiply_xx_0_0, '0', blocks_add_xx_0, '0']
+- [blocks_multiply_xx_0_0_0, '0', blocks_add_xx_0, '1']
 - [blocks_repeat_0, '0', blocks_sub_xx_0, '1']
-- [blocks_sub_xx_0, '0', blocks_float_to_complex_0_0, '0']
+- [blocks_repeat_0, '0', virtual_sink_0, '0']
+- [blocks_sub_xx_0, '0', virtual_sink_0_0, '0']
 - [blocks_vector_source_x_0, '0', blocks_repeat_0, '0']
+- [virtual_source_0, '0', blocks_multiply_xx_0_0, '0']
+- [virtual_source_1, '0', blocks_multiply_xx_0_0_0, '1']
 
 metadata:
   file_format: 1
