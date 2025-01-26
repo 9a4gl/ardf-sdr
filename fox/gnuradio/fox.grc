@@ -11,7 +11,7 @@ options:
     gen_linking: dynamic
     generate_options: qt_gui
     hier_block_src_path: '.:'
-    id: foxv2
+    id: foxv3
     max_nouts: '0'
     output_language: python
     placement: (0,0)
@@ -22,7 +22,7 @@ options:
     run_options: prompt
     sizing_mode: fixed
     thread_safe_setters: ''
-    title: Foxv2
+    title: Fox v3
     window_size: (1000,1000)
   states:
     bus_sink: false
@@ -51,7 +51,7 @@ blocks:
     bus_sink: false
     bus_source: false
     bus_structure: null
-    coordinate: [840, 12.0]
+    coordinate: [784, 12.0]
     rotation: 0
     state: true
 - name: audio_samp_rate
@@ -63,7 +63,7 @@ blocks:
     bus_sink: false
     bus_source: false
     bus_structure: null
-    coordinate: [280, 12.0]
+    coordinate: [272, 12.0]
     rotation: 0
     state: enabled
 - name: cw_speed
@@ -84,7 +84,7 @@ blocks:
     bus_sink: false
     bus_source: false
     bus_structure: null
-    coordinate: [584, 12.0]
+    coordinate: [528, 12.0]
     rotation: 0
     state: true
 - name: freq
@@ -105,9 +105,26 @@ blocks:
     bus_sink: false
     bus_source: false
     bus_structure: null
-    coordinate: [712, 12.0]
+    coordinate: [656, 12.0]
     rotation: 0
     state: true
+- name: power
+  id: variable_qtgui_check_box
+  parameters:
+    comment: ''
+    'false': '0'
+    gui_hint: ''
+    label: Power
+    'true': '1'
+    type: real
+    value: '1'
+  states:
+    bus_sink: false
+    bus_source: false
+    bus_structure: null
+    coordinate: [400, 12.0]
+    rotation: 0
+    state: enabled
 - name: samp_rate
   id: variable
   parameters:
@@ -117,7 +134,7 @@ blocks:
     bus_sink: false
     bus_source: false
     bus_structure: null
-    coordinate: [184, 12]
+    coordinate: [176, 12.0]
     rotation: 0
     state: enabled
 - name: analog_const_source_x_0
@@ -134,7 +151,7 @@ blocks:
     bus_sink: false
     bus_source: false
     bus_structure: null
-    coordinate: [192, 588.0]
+    coordinate: [216, 356.0]
     rotation: 0
     state: enabled
 - name: analog_const_source_x_1
@@ -151,7 +168,24 @@ blocks:
     bus_sink: false
     bus_source: false
     bus_structure: null
-    coordinate: [256, 228.0]
+    coordinate: [224, 148.0]
+    rotation: 0
+    state: enabled
+- name: analog_const_source_x_2
+  id: analog_const_source_x
+  parameters:
+    affinity: ''
+    alias: ''
+    comment: ''
+    const: complex(power,0)
+    maxoutbuf: '0'
+    minoutbuf: '0'
+    type: complex
+  states:
+    bus_sink: false
+    bus_source: false
+    bus_structure: null
+    coordinate: [360, 572.0]
     rotation: 0
     state: enabled
 - name: analog_sig_source_x_0
@@ -174,7 +208,7 @@ blocks:
     bus_sink: false
     bus_source: false
     bus_structure: null
-    coordinate: [16, 436.0]
+    coordinate: [16, 284.0]
     rotation: 0
     state: enabled
 - name: analog_sig_source_x_0_0
@@ -197,7 +231,7 @@ blocks:
     bus_sink: false
     bus_source: false
     bus_structure: null
-    coordinate: [16, 612.0]
+    coordinate: [16, 492.0]
     rotation: 0
     state: true
 - name: blocks_add_xx_0
@@ -215,7 +249,7 @@ blocks:
     bus_sink: false
     bus_source: false
     bus_structure: null
-    coordinate: [808, 608.0]
+    coordinate: [456, 472.0]
     rotation: 0
     state: enabled
 - name: blocks_float_to_complex_0
@@ -231,28 +265,10 @@ blocks:
     bus_sink: false
     bus_source: false
     bus_structure: null
-    coordinate: [384, 560.0]
+    coordinate: [416, 328.0]
     rotation: 0
     state: enabled
 - name: blocks_multiply_xx_0_0
-  id: blocks_multiply_xx
-  parameters:
-    affinity: ''
-    alias: ''
-    comment: ''
-    maxoutbuf: '0'
-    minoutbuf: '0'
-    num_inputs: '3'
-    type: complex
-    vlen: '1'
-  states:
-    bus_sink: false
-    bus_source: false
-    bus_structure: null
-    coordinate: [632, 544.0]
-    rotation: 0
-    state: enabled
-- name: blocks_multiply_xx_0_0_0
   id: blocks_multiply_xx
   parameters:
     affinity: ''
@@ -267,7 +283,25 @@ blocks:
     bus_sink: false
     bus_source: false
     bus_structure: null
-    coordinate: [632, 664.0]
+    coordinate: [632, 344.0]
+    rotation: 0
+    state: enabled
+- name: blocks_multiply_xx_0_0_0
+  id: blocks_multiply_xx
+  parameters:
+    affinity: ''
+    alias: ''
+    comment: ''
+    maxoutbuf: '0'
+    minoutbuf: '0'
+    num_inputs: '3'
+    type: complex
+    vlen: '1'
+  states:
+    bus_sink: false
+    bus_source: false
+    bus_structure: null
+    coordinate: [600, 504.0]
     rotation: 0
     state: enabled
 - name: blocks_repeat_0
@@ -285,7 +319,7 @@ blocks:
     bus_sink: false
     bus_source: false
     bus_structure: null
-    coordinate: [224, 164.0]
+    coordinate: [224, 196.0]
     rotation: 0
     state: enabled
 - name: blocks_sub_xx_0
@@ -303,7 +337,7 @@ blocks:
     bus_sink: false
     bus_source: false
     bus_structure: null
-    coordinate: [456, 232.0]
+    coordinate: [456, 168.0]
     rotation: 0
     state: enabled
 - name: blocks_vector_source_x_0
@@ -324,7 +358,36 @@ blocks:
     bus_sink: false
     bus_source: false
     bus_structure: null
-    coordinate: [8, 148.0]
+    coordinate: [16, 180.0]
+    rotation: 0
+    state: enabled
+- name: qtgui_sink_x_0
+  id: qtgui_sink_x
+  parameters:
+    affinity: ''
+    alias: ''
+    bw: samp_rate
+    comment: ''
+    fc: 144e6
+    fftsize: '1024'
+    gui_hint: ''
+    maxoutbuf: '0'
+    minoutbuf: '0'
+    name: Radio
+    plotconst: 'True'
+    plotfreq: 'True'
+    plottime: 'True'
+    plotwaterfall: 'True'
+    rate: '10'
+    showports: 'False'
+    showrf: 'True'
+    type: complex
+    wintype: window.WIN_BLACKMAN_hARRIS
+  states:
+    bus_sink: false
+    bus_source: false
+    bus_structure: null
+    coordinate: [752, 444.0]
     rotation: 0
     state: enabled
 - name: soapy_hackrf_sink_0
@@ -344,7 +407,7 @@ blocks:
     bus_sink: false
     bus_source: false
     bus_structure: null
-    coordinate: [936, 624.0]
+    coordinate: [784, 552.0]
     rotation: 0
     state: enabled
 - name: virtual_sink_0
@@ -357,7 +420,7 @@ blocks:
     bus_sink: false
     bus_source: false
     bus_structure: null
-    coordinate: [424, 164.0]
+    coordinate: [456, 244.0]
     rotation: 0
     state: enabled
 - name: virtual_sink_0_0
@@ -370,7 +433,20 @@ blocks:
     bus_sink: false
     bus_source: false
     bus_structure: null
-    coordinate: [584, 244.0]
+    coordinate: [728, 180.0]
+    rotation: 0
+    state: enabled
+- name: virtual_sink_0_0_0
+  id: virtual_sink
+  parameters:
+    alias: ''
+    comment: ''
+    stream_id: audio
+  states:
+    bus_sink: false
+    bus_source: false
+    bus_structure: null
+    coordinate: [784, 356.0]
     rotation: 0
     state: enabled
 - name: virtual_source_0
@@ -383,7 +459,7 @@ blocks:
     bus_sink: false
     bus_source: false
     bus_structure: null
-    coordinate: [16, 388.0]
+    coordinate: [424, 412.0]
     rotation: 0
     state: enabled
 - name: virtual_source_1
@@ -396,26 +472,41 @@ blocks:
     bus_sink: false
     bus_source: false
     bus_structure: null
-    coordinate: [16, 740.0]
+    coordinate: [216, 500.0]
+    rotation: 0
+    state: enabled
+- name: virtual_source_2
+  id: virtual_source
+  parameters:
+    alias: ''
+    comment: ''
+    stream_id: audio
+  states:
+    bus_sink: false
+    bus_source: false
+    bus_structure: null
+    coordinate: [216, 452.0]
     rotation: 0
     state: enabled
 
 connections:
 - [analog_const_source_x_0, '0', blocks_float_to_complex_0, '1']
 - [analog_const_source_x_1, '0', blocks_sub_xx_0, '0']
+- [analog_const_source_x_2, '0', blocks_multiply_xx_0_0_0, '2']
 - [analog_sig_source_x_0, '0', blocks_float_to_complex_0, '0']
-- [analog_sig_source_x_0_0, '0', blocks_multiply_xx_0_0, '2']
-- [analog_sig_source_x_0_0, '0', blocks_multiply_xx_0_0_0, '0']
-- [blocks_add_xx_0, '0', soapy_hackrf_sink_0, '0']
-- [blocks_float_to_complex_0, '0', blocks_multiply_xx_0_0, '1']
-- [blocks_multiply_xx_0_0, '0', blocks_add_xx_0, '0']
-- [blocks_multiply_xx_0_0_0, '0', blocks_add_xx_0, '1']
+- [analog_sig_source_x_0_0, '0', blocks_multiply_xx_0_0_0, '1']
+- [blocks_add_xx_0, '0', blocks_multiply_xx_0_0_0, '0']
+- [blocks_float_to_complex_0, '0', blocks_multiply_xx_0_0, '0']
+- [blocks_multiply_xx_0_0, '0', virtual_sink_0_0_0, '0']
+- [blocks_multiply_xx_0_0_0, '0', qtgui_sink_x_0, '0']
+- [blocks_multiply_xx_0_0_0, '0', soapy_hackrf_sink_0, '0']
 - [blocks_repeat_0, '0', blocks_sub_xx_0, '1']
 - [blocks_repeat_0, '0', virtual_sink_0, '0']
 - [blocks_sub_xx_0, '0', virtual_sink_0_0, '0']
 - [blocks_vector_source_x_0, '0', blocks_repeat_0, '0']
-- [virtual_source_0, '0', blocks_multiply_xx_0_0, '0']
-- [virtual_source_1, '0', blocks_multiply_xx_0_0_0, '1']
+- [virtual_source_0, '0', blocks_multiply_xx_0_0, '1']
+- [virtual_source_1, '0', blocks_add_xx_0, '1']
+- [virtual_source_2, '0', blocks_add_xx_0, '0']
 
 metadata:
   file_format: 1
